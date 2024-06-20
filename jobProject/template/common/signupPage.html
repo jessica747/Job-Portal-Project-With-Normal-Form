@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<style>
+    input[type=text],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+
+<body>
+
+    <h3>Using CSS to style an HTML Form</h3>
+
+    <div>
+        {% include "common/messages.html" %}
+        <form action="{% url 'signupPage' %}" method="POST" enctype="multipart/form-data" >
+
+        {% csrf_token %}
+        
+
+            <label for="fname">User Name</label>
+            <input type="text" id="fname" name="username" >
+
+            <label for="lname">Display Name</label>
+            <input type="text" id="lname" name="display_name" >
+            <br>
+            <br>
+            <label for="lname">Password</label>
+            <input type="password" id="lname" name="password" >
+            <br>
+            <br>
+            <label for="lname">Confirm Password</label>
+            <input type="password" id="lname" name="confirm_password" >
+            <br>
+            <br>
+            <label for="lname">Email Address</label>
+            <input type="email" id="lname" name="email_address" >
+            <br>
+            <br>
+            <label for="country">User_type</label>
+            <select id="country" name="user_type">
+                <option value="recruiter">Recruiter</option>
+                <option value="seeker">Seeker</option>
+            </select>
+            <br>
+            <br>
+            <label for="lname">Profile Picture</label>
+            <input type="file" id="lname" name="profile_picture" >
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <a href="{% url 'signinPage' %}"> I already have an account </a>
+    </div>
+
+</body>
+
+</html>
